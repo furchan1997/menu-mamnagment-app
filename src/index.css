@@ -1,3 +1,4 @@
+/* עיצוב לרכיב ראשי*/
 .main-app {
   min-height: 100vh;
   display: flex;
@@ -5,6 +6,7 @@
   direction: rtl;
 }
 
+/* עיצוב לרכיב אשר מקבל את המשתמש ונותן הסבר על אפליקציה*/
 .summary {
   display: flex;
   flex-direction: column;
@@ -15,7 +17,7 @@
 .summary h2 {
   font-size: 2em;
 }
-
+/* עיצוב לרכיב כפתור מותאם אישית*/
 .btn {
   background: linear-gradient(135deg, #4a90e2, #0072ff);
   color: #fff;
