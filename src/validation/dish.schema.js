@@ -1,5 +1,4 @@
 import joi from "joi";
-
 // פונקציית ולידצייה יעודי להוספת מנות עם שימוש בג'וי
 export function dishSchemaValidate(obj) {
   const schema = joi.object({

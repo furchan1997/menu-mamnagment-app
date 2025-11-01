@@ -22,8 +22,9 @@ export function DishProvider({ children }) {
   // פונקציה שמקבלת את שם המנה ומחזירה אובייקט שמכיל את אותו שם המנה לצד המחיר
   const getDish = (name) => {
     // מחזירה את האיבר הראשון שרשום בו שם מנה תואם (לא תלוי באותיות גדולות/קטנות, מנקה רווחים)
-    const getDishByName = dishList.find(
-      (dish) => dish.name.toUpperCase().trim() === name.toUpperCase().trim() // השוואה זהה לשני הצדדים
+    const getDishByName = dishList.find((dish) =>
+      // הפונקציה תחזיר את האיבר הראשון שהשם שלו כולל אפילו חלק מהמילה
+      dish.name.toLowerCase().includes(name.toLowerCase().trim())
     );
     return getDishByName;
   };

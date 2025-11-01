@@ -1,13 +1,8 @@
-//רכיב אשר מציג משפט פתיחה על מהות האפליקציה והדרכה בסיסית
-function Summary() {
-  // קבלת הפונקציה לניווט לכתובת ה-URL של יצירת מנה מההוק
+import Header from "../header";
 
-  return (
-    <div className="summary">
-      <h2>אפליקצייה לניהול תפריטים</h2>
-      <p>כאן תוכלו להוסיף מנה יחד עם המחיר שלה וגם למחוק</p>
-    </div>
-  );
+//רכיב קבלת פני המתשמש
+function Summary() {
+  return <Header title="ממשק לניהול תפריטים" />;
 }
 
 export default Summary;

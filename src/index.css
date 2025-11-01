@@ -45,7 +45,7 @@ body {
 .input-controller {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 75%;
   margin-bottom: 8px;
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .input-controller input {
-  width: 100%;
+  width: 50%;
   padding: 0.7rem 1.2rem;
   border: 2px solid #e0e0e0;
   border-radius: 50px;
@@ -77,12 +77,12 @@ body {
   text-align: center;
   padding: 8px;
   border-radius: 50px;
-  width: 50vw;
+  width: 50%;
 }
 
 /* עיצוב קונטיינר הטבלה */
 .dishes-table-controller {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -133,4 +133,25 @@ body {
   margin: 10px auto; /* ממורכז */
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* למסכים קטנים יותר (עד 600px) */
+@media (max-width: 600px) {
+  .error-message {
+    width: 100%;
+  }
+
+  /* עיצוב עבור שדה קלט */
+  .input-controller {
+    width: 95%;
+  }
+
+  .input-controller input {
+    width: 90%;
+  }
+
+  /* עיצוב הטבלה עצמה  */
+  .dishes-table-controller table {
+    width: 100%;
+  }
 }

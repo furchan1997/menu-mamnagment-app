@@ -35,7 +35,6 @@ function Dishes() {
 
   return (
     <div>
-      <h2>להלן רשימת המנות, ניתן גם למחוק לפי רצונך</h2>
       {hasSearchError && <ErrorMsg msg={"אין התאמה של מנות"} />}
       <Input
         placeholder={"חפש מנה"}

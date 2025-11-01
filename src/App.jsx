@@ -8,12 +8,7 @@ function App() {
   return (
     <>
       <div className="main-app">
-        <header>
-          {/*
-          רכיב אשר מסביר על מהות האפליקציה
-           */}
-          <Summary />
-        </header>
+        <Summary />
         <main>
           {/*
        ניהול הניווטים
