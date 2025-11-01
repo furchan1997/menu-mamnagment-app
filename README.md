@@ -1,16 +1,100 @@
-# React + Vite
+# 🧾 מערכת לניהול תפריט מסעדה (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+אפליקציית React לניהול תפריט מסעדה — מאפשרת להוסיף, להציג, לחפש ולמחוק מנות תוך שמירה מקומית (Local Storage).  
+הפרויקט נבנה לצורך הדגמה של ניהול סטייט גלובלי, טפסים עם ולידציה, רינדור מותנה והתאמה למסכים שונים.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ תכונות עיקריות
 
-## React Compiler
+- ✅ הצגת רשימת מנות בטבלה (שם + מחיר)
+- ✅ הוספת מנה חדשה בעזרת טופס
+- ✅ מחיקת מנה מהתפריט עם הודעת אישור (Confirm)
+- ✅ שמירת הנתונים ב־**Local Storage** כך שיישמרו לאחר ריענון הדף
+- ✅ חיפוש מנות לפי שם (כולל התאמה חלקית)
+- ✅ הודעות מותנות:
+  - “אין מנות בתפריט”
+  - “אין תוצאות חיפוש”
+  - “מנה נוספה בהצלחה”
+- ✅ עיצוב רספונסיבי (Responsive Design) בעזרת **CSS Media Queries**
+- ✅ רכיבים גנריים לשימוש חוזר: `Btn`, `Input`, `Header`, `Warning`, `ErrorMsg`
+- ✅ הודעת הצלחה מתוזמנת (3 שניות) באמצעות `setTimeout` בעת יצירת מנה חדשה
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 מבנה ולוגיקה עיקרית
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🟢 Dish Context
+
+- מנהל סטייט גלובלי של כל המנות (`dishList`)
+- אחראי על שמירה וטעינה של הנתונים מ־`localStorage`
+- כולל את הפונקציות:
+  - `createNewDish()` – הוספת מנה חדשה
+  - `deleteDish()` – מחיקת מנה עם הודעת אישור
+  - `getDish()` – איתור מנה לפי שם (תומך בהתאמה חלקית)
+
+### 🟣 רכיב יצירת מנה (`CreateDish`)
+
+- טופס הוספת מנה חדש עם ניהול בעזרת **Formik**
+- ולידציה של שדות בעזרת **Joi**
+- הודעת הצלחה מוצגת ל־3 שניות ואז מתבצע ניווט אוטומטי לעמוד הבית
+
+### 🟠 רכיב רשימת מנות (`Dishes`)
+
+- מציג טבלת מנות מסודרת
+- מאפשר חיפוש לפי שם (כולל התאמה חלקית)
+- מטפל במצבים שונים (אין מנות, אין תוצאות, תוצאה אחת וכו’)
+- ממיין את המנות כך שהחדשות מוצגות ראשונות (`reverse()`)
+
+### 🔵 רכיב כפתור (`Btn`)
+
+- רכיב גנרי עם פרופסים עבור סוג, טקסט, עיצוב ו־onClick
+
+### 🟣 ניווט (`useAppNavigation`)
+
+- Hook מותאם אישית המשתמש ב־`useNavigate` מ־React Router  
+  עבור ניווט פנימי נקי (כמו `goHome`, `goToCreateDish`).
+
+---
+
+## 🧩 טכנולוגיות בשימוש
+
+- **React 19 + Vite**
+- **React Router DOM 7** – ניהול ניווט פנימי
+- **Formik** – ניהול טפסים
+- **Joi** – ולידציה לוגית בצד הקליינט
+- **Local Storage** – שמירה מקומית של נתונים
+- **CSS Media Queries** – התאמה למסכים שונים (רספונסיביות)
+
+---
+
+## 📦 תלויות (Dependencies)
+
+```json
+"dependencies": {
+  "formik": "^2.4.6",
+  "git": "^0.1.5",
+  "joi": "^18.0.1",
+  "react": "^19.1.1",
+  "react-dom": "^19.1.1",
+  "react-router-dom": "^7.9.5"
+}
+```
+
+## 🖥️ הוראות הפעלה מקומית
+
+עבור לתיקיית הפרויקט, התקן את כל התלויות הדרושות והרץ את הממשק:
+
+---
+
+```bash
+cd "menu mamnagment app"
+npm install
+npm run dev
+
+```
+
+---
+
+האפליקציה תופעל באופן מקומי בכתובת:  
+http://localhost:5173
