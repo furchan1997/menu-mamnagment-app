@@ -1,3 +1,10 @@
+/* ייבוא גופן מיוחד מגוגל */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 /* עיצוב לרכיב ראשי*/
 .main-app {
   min-height: 100vh;
@@ -23,7 +30,7 @@
   color: #fff;
   border: none;
   padding: 0.75rem 1.6rem;
-  border-radius: 9999px; /* עיגול יפה */
+  border-radius: 9999px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -31,4 +38,42 @@
 
 .btn:hover {
   box-shadow: 0 14px 30px rgba(0, 114, 255, 0.35);
+}
+
+/* עיצוב עבור שדה קלט */
+.input-controller {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+.input-controller label {
+  font-weight: bold;
+}
+
+.input-controller input {
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  background-color: #fafafa;
+}
+
+/* עיצוב עבור הכוכבית שעל יד השדה חובה בטופס */
+.required-felid {
+  color: red;
+}
+
+/* עיצוב עבור השגיאות ולידצייה שמגיעה מגוי */
+.error-message {
+  color: #d8000c;
+  background-color: #ffd2d2;
+  border: 1px solid #d8000c;
+  text-align: center;
+  padding: 8px;
+  border-radius: 50px;
 }
