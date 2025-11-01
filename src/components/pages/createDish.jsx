@@ -4,8 +4,7 @@ import { useFormik } from "formik";
 import Input from "../input";
 import { useEffect, useState } from "react";
 import { useDish } from "../../contexts/dish.context";
-import joi from "joi";
-
+import { dishSchemaValidate } from "../../validation/dish.schema";
 // רכיב של יצירת מנה חדשה
 function CreateDish() {
   const { goHome } = useAppNavigation(); // שימוש בפונקציית ניווט שחוזרת לעמוד הבית מההוק המותאם אישית
@@ -20,15 +19,12 @@ function CreateDish() {
     },
     // המרה של אובייקט השגיאות לפורמט של שפורמיק מכיר
     validate(values) {
-      // ולידצייה באמצעות ג'וי
-      const schema = joi.object({
-        name: joi.string().min(2).max(124).required(),
-        price: joi.number().min(10).required(),
-      });
+      const dishSchema = dishSchemaValidate(values); // קבלת פונקציית הולידצייה של ג'וי
+      const { error } = dishSchema; // קבלת אובייקט השגיאות
 
-      const { error } = schema.validate(values, { abortEarly: false });
       const errors = {};
       if (!error) return {};
+
       // יצירת אובייקט שגיאות ישיכיל כמפתח את סוג השדה כמפתח וכערך את הודעת השגיאה עצמה
       for (const detali of error.details) {
         const path = detali.path[0];
@@ -43,10 +39,6 @@ function CreateDish() {
       goHome(); // ניווט חזרה לעמוד הראשי אחרי ההוספה
     },
   });
-  //שמירה אוטומטית של רשימת במנות בלוקאל סטורג
-  useEffect(() => {
-    localStorage.setItem("dishList", JSON.stringify(dishList));
-  }, [dishList]);
 
   return (
     <div>

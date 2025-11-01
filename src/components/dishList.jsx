@@ -1,14 +1,17 @@
 import Btn from "./btn";
 
 // רכיב גנרי אשר יטפל ברשימת מנות
-function DishList({ id, name, price, deleteDish }) {
+function DishList({ id, name, price, dishDelete = () => {} }) {
   return (
-    <div>
-      <h2>שם מנה: {name} </h2>
-      <p>{price} ש''ח</p>
-      <Btn description={"מחק מנה"} fn={deleteDish} />
-      <p>{id}</p>
-    </div>
+    <>
+      <tr>
+        <td>{name}</td>
+        <td>{price}</td>
+        <td>
+          <Btn description={"מחק מנה"} fn={dishDelete} />
+        </td>
+      </tr>
+    </>
   );
 }
 

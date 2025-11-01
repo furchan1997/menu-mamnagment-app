@@ -8,6 +8,7 @@ import { DishProvider } from "./contexts/dish.context.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      {/* עטיפת הפרובידר של ניהול מנות לכל הרכיבים באפליקציה */}
       <DishProvider>
         <App />
       </DishProvider>

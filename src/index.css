@@ -29,7 +29,8 @@ body {
   background: linear-gradient(135deg, #4a90e2, #0072ff);
   color: #fff;
   border: none;
-  padding: 0.75rem 1.6rem;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
   border-radius: 9999px;
   font-size: 1rem;
   font-weight: 600;
@@ -76,4 +77,60 @@ body {
   text-align: center;
   padding: 8px;
   border-radius: 50px;
+  width: 50vw;
+}
+
+/* עיצוב קונטיינר הטבלה */
+.dishes-table-controller {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+/* עיצוב הטבלה עצמה  */
+.dishes-table-controller table {
+  width: 90%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* עיצוב כותרות הטבלה */
+.dishes-table-controller thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* עיצוב התאים  */
+.dishes-table-controller th,
+.dishes-table-controller td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* עיצוב כל שורה זוגית בצבע רקע מותאם */
+.dishes-table-controller tr:nth-child(even) {
+  background-color: #b5d0ea;
+}
+
+.dishes-table-controller tbody {
+  width: 100%;
+}
+/* עיצוב הודעות התראה */
+.warning-msg {
+  border: 2px solid #ffcc00; /* מסגרת צהובה */
+  background-color: #fff8e1; /* רקע צהוב בהיר */
+  color: #664d03; /* טקסט חום כהה */
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  width: fit-content;
+  margin: 10px auto; /* ממורכז */
+  font-size: 1rem;
+  font-weight: bold;
 }

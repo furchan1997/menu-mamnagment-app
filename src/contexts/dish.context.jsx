@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 // יצירת הקונטקסט
 export const DishContext = createContext();
@@ -14,20 +14,38 @@ export function DishProvider({ children }) {
   });
 
   // פונקציה ליצירת מנה חדשה והוספתה לרשימה
-  // כל מנה מקבלת מזהה ייחודי ומתווספת למערך
   const createNewDish = (value) => {
-    setDishList((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        ...value,
-      },
-    ]);
+    setDishList((prev) => [...prev, value]);
   };
 
-  // החזרת הנתונים והפונקציות לאפליקציה כולה דרך ה-Provider
+  // פונקציה שמקבלת את שם המנה ומחזירה אובייקט שמכיל את אותו שם המנה לצד המחיר
+  const getDish = (name) => {
+    // מחזירה את האיבר הראשון שרשום בו שם מנה תואם (לא תלוי באותיות גדולות/קטנות, מנקה רווחים)
+    const getDishByName = dishList.find(
+      (dish) => dish.name.toUpperCase().trim() === name.toUpperCase().trim() // השוואה זהה לשני הצדדים
+    );
+    return getDishByName;
+  };
+
+  // פונקציה אשר מוחקת את המנה לפי השם שלה
+  const deleteDish = (NAME) => {
+    // נבדק האם יש התאמה בין השם שהתקבל במידה וכן נעשה שינוי בסטייט של רשימת מנות
+    const filterdDish = dishList.filter((dish) => dish?.name !== NAME);
+    if (filterdDish) {
+      setDishList((prev) => [...prev]);
+    }
+    setDishList(filterdDish);
+    return filterdDish;
+  };
+  // בכל פעם שיש שינוי ברשימת המנות אז שמירת אותה המנה בלוקאל סטורג
+  useEffect(() => {
+    localStorage.setItem("dishList", JSON.stringify(dishList));
+  }, [dishList]);
+  // החזרת הנתונים והפונקציות לאפליקציה כולה דרך הפובידר
   return (
-    <DishContext.Provider value={{ createNewDish, dishList }}>
+    <DishContext.Provider
+      value={{ createNewDish, dishList, deleteDish, getDish }}
+    >
       {children}
     </DishContext.Provider>
   );

@@ -19,7 +19,9 @@ function App() {
        ניהול הניווטים
            */}
           <Routes>
+            {/* עמוד יצירת מנה חדשה */}
             <Route path="/Create-dish" element={<CreateDish />} />
+            {/* עמוד אשר מציג את כל המנות ומאפשר מחיקה */}
             <Route path="/" element={<Dishes />} />
           </Routes>
         </main>
