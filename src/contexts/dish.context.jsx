@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import Warning from "../messages/warning.msg";
 
 // יצירת הקונטקסט
 export const DishContext = createContext();
@@ -34,7 +35,10 @@ export function DishProvider({ children }) {
     if (filterdDish) {
       setDishList((prev) => [...prev]);
     }
-    setDishList(filterdDish);
+    // שליחת הודעה תואמת למשתמש לאימות של ביצוע המחיקה
+    if (window.confirm(`האם את/ה בטוח/ה שברצונך למחוק את המנה: ${NAME}`)) {
+      setDishList(filterdDish);
+    }
     return filterdDish;
   };
   // בכל פעם שיש שינוי ברשימת המנות אז שמירת אותה המנה בלוקאל סטורג
