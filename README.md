@@ -102,7 +102,7 @@ http://localhost:5173
 ## 🤖 שימוש בכלי AI (ChatGPT) ובמקורות למידה נוספים
 
 במהלך תהליך הפיתוח נעשה שימוש ב־ChatGPT ובמקורות למידה נוספים, לצורך ליווי והעמקה בנושאים טכניים ויישומיים.  
-העזרתי בכלי ובסרטוני הדרכה ביוטיוב למטרות הבאות:
+נעזרתי בכלי ובסרטוני הדרכה ביוטיוב למטרות הבאות:
 
 - 🧩 ניסוח הודעות קומיט (Commit Messages) מקצועיות בהתאם לסטנדרטים המקובלים בתעשייה.
 - 📝 כתיבה וארגון של קובץ README.md באופן מובנה, בהיר ורשמי.
