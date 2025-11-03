@@ -23,16 +23,20 @@ function Dishes() {
       setHasSearchError(false);
       return;
     }
-    const found = getDish(search); // חיפוש מנה לפי שם, הפונקציה מחזירה אובייקט של המנה אם נמצאה
-    //  אם נמצאה מנה אז ישנה שמירה בסטייט במידה ולא איפוס והפעלת השגיאה
-    if (found) {
+    const found = getDish(search);
+    // חיפוש מנות לפי שם, הפונקציה מחזירה מערך של כל המנות ששמן כולל את הטקסט שהוזן
+    // אם נמצאו מנות תואמות, שמירה את מערך התוצאות בסטייט וביטול הודעת שגיאה
+    if (found.length > 0) {
       setFilterdDishs(found);
       setHasSearchError(false);
-    } else {
+    }
+    // אם לא נמצאה אף מנה, איפוס את תוצאות הסינון והפעל הודעת שגיאה
+    else {
       setFilterdDishs(null);
       setHasSearchError(true);
     }
-  }, [search, dishList]); // הפעולות באפקט יופעלו בכל שינוי של שדה החיפוש או רשימת המנות משתנות
+  }, [search, dishList]);
+  // האפקט יופעל בכל פעם שמשתנה טקסט החיפוש או שמתרחשת שינוי ברשימת המנות
 
   return (
     <div>
