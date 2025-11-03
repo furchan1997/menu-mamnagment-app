@@ -19,25 +19,26 @@ export function DishProvider({ children }) {
     setDishList((prev) => [...prev, value]);
   };
 
-  // פונקציה שמקבלת את שם המנה ומחזירה אובייקט שמכיל את אותו שם המנה לצד המחיר
+  // פונקציה שמקבלת שם של מנה ומחזירה מערך של כל המנות ששמן כולל את הטקסט שנשלח
   const getDish = (name) => {
-    // מחזירה את האיבר הראשון שרשום בו שם מנה תואם (לא תלוי באותיות גדולות/קטנות, מנקה רווחים)
-    const getDishByName = dishList.find((dish) =>
-      // הפונקציה תחזיר את האיבר הראשון שהשם שלו כולל אפילו חלק מהמילה
+    // מסננת את כל המנות שהשם שלהן תואם (לא תלוי באותיות גדולות/קטנות, מנקה רווחים)
+    const getDishByName = dishList.filter((dish) =>
+      // מחזירה כל מנה שהשם שלה כולל אפילו חלק מהמחרוזת שהוזנה
       dish.name.toLowerCase().includes(name.toLowerCase().trim())
     );
+    // מחזירה מערך של כל ההתאמות שנמצאו (יכול להיות גם ריק אם אין התאמות)
     return getDishByName;
   };
 
   // פונקציה אשר מוחקת את המנה לפי השם שלה
-  const deleteDish = (NAME) => {
+  const deleteDish = (name) => {
     // נבדק האם יש התאמה בין השם שהתקבל במידה וכן נעשה שינוי בסטייט של רשימת מנות
-    const filterdDish = dishList.filter((dish) => dish?.name !== NAME);
+    const filterdDish = dishList.filter((dish) => dish?.name !== name);
     if (filterdDish) {
       setDishList((prev) => [...prev]);
     }
     // שליחת הודעה תואמת למשתמש לאימות של ביצוע המחיקה
-    if (window.confirm(`האם את/ה בטוח/ה שברצונך למחוק את המנה: ${NAME}`)) {
+    if (window.confirm(`האם את/ה בטוח/ה שברצונך למחוק את המנה: ${name}`)) {
       setDishList(filterdDish);
     }
     return filterdDish;
