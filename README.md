@@ -119,7 +119,6 @@ http://localhost:5173
 - 🧩 ניסוח הודעות קומיט (Commit Messages) מקצועיות בהתאם לסטנדרטים המקובלים בתעשייה.
 - 📝 כתיבה וארגון של קובץ README.md באופן מובנה, בהיר ורשמי.
 - ⚙️ סיוע בעיצוב ובנייה של טבלת נתונים (Table) ברמה עיצובית גבוהה ומותאמת רספונסיבית.
-- 🧠 רענון והבהרה של אופן פעולת **הוק מותאם אישית (Custom Hook)** ב־React והיתרונות שבשימוש בו.
 - 💾 רענון ידע בנוגע לשימוש ב־**Local Storage** לשמירת נתונים מתמשכת, וב־**setTimeout()** לניהול תזמון פעולות.
 - 🔍 סיוע בבדיקות לוגיות עבור פונקציות ומקרים חריגים (Edge Cases) שעלולים שלא להתגלות בבדיקות רגילות.
-- 🎥 שימוש בסרטוני הדרכה ביוטיוב להעמקת ההבנה בעקרונות עיצוב, ריאקטיביות וניהול מצבים ב־React.
+
